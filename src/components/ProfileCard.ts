@@ -12,10 +12,13 @@ export class ProfileCard {
     set user(value: User) { this._user = value; }
 
     render(): string {
-        return `<div>Nombre: ${this.user.name}
-  Habilidades: ${this.user.skills.join(", ")}
-  Disponibilidad: ${this.user.employmentStatus}
-  Localidad: ${this.user.location}
-  </div>`;
+        return `
+        <article class="profile-card">
+            <p>Nombre: ${this.user.name}</p>
+            <p>Habilidades: ${this.user.skills.join(", ")}</p>
+            <p>Disponibilidad: ${this.user.employmentStatus}</p>
+            <p>Localidad: ${this.user.location}</p>
+        </article>
+        `;
     }
 }
