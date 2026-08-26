@@ -1,6 +1,8 @@
 import type { EmploymentStatus } from "../types/IUser";
 import type { Seniority } from '../types/IUser';
 
+// interface IUser
+
 export class User {
     private _name: string;
     private _location: string;

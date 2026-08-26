@@ -1,7 +1,7 @@
 import { ProfileCard } from '../components/ProfileCard';
 import { User } from '../models/User';
 
-export function renderSearchBar(): string {
+export function renderMemberSearchBar(): string {
     return `
     <label for="nameSearchUser">Buscar:</label>
     <input type ="text" id="nameSearchUser" placeholder="Escribe el nombre o la skill">
@@ -9,7 +9,7 @@ export function renderSearchBar(): string {
 `;
 }
 
-export function renderFilterControl(): string {
+export function renderMemberFilterControl(): string {
     return `
     <label for="levelOption">Nivell:</label>
         <select id="levelOption">
@@ -37,7 +37,7 @@ export function renderFilterControl(): string {
 `;
 }
 
-export function convertListHtml(userList: User[]): string {
+export function convertMemberListHtml(userList: User[]): string {
     let userCardsHtml = '<ul class="user-list">';
 
     for (const user of userList) {
@@ -48,6 +48,6 @@ export function convertListHtml(userList: User[]): string {
     return userCardsHtml;
 }
 
-export function renderFullProfilePage(userList: User[]): string {
-    return `${renderSearchBar()} ${renderFilterControl()} ${convertListHtml(userList)}`
+export function renderMemberSearchPage(userList: User[]): string {
+    return `${renderMemberSearchBar()} ${renderMemberFilterControl()} ${convertMemberListHtml(userList)}`
 }

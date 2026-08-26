@@ -3,7 +3,6 @@ import type { User } from "../models/User";
 export class ProfileCard {
     private _user: User;
 
-
     constructor(user: User) {
         this._user = user;
     }
