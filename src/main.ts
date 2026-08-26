@@ -1,7 +1,14 @@
 import './css/style.css';
 import { generateDummyUsers } from './mocks/mockUsers';
 import { renderFullProfilePage } from './pages/Profile';
-import { searchUsers } from './services/UserService';
+import {
+    searchUsers,
+    filterByActivity,
+    filterBySeniority,
+    filterByStack,
+    filterByEmploymentStatus
+} from './services/UserService';
+import type { EmploymentStatus, Seniority } from './types/IUser';
 
 // MAIN:
 // cargar datos
@@ -13,34 +20,50 @@ import { searchUsers } from './services/UserService';
 // ******renderProfilePage()***************
 const mockUserList = generateDummyUsers();
 
-
-// Render inicial
+// -------Render inicial---------
 document.getElementById("app")!.innerHTML = renderFullProfilePage(mockUserList);
 
-// Evento del buscador
+
+// ---------Evento del buscador---------
+
 const searchButton = document.getElementById("searchUser")!;
 searchButton.addEventListener("click", function () {
 
     const value = (document.getElementById("nameSearchUser") as HTMLInputElement).value;
 
     const filteredUsers = searchUsers(value, mockUserList);
-
+ 
     const app = document.getElementById("app")!;
     app.innerHTML = renderFullProfilePage(filteredUsers);
-
-
-    // Cuando pulses Buscar, quieres:
-
-    // 1. Leer "maria"
-    //         ↓
-    // 2. Buscar "maria" en la lista
-    //         ↓
-    // 3. Obtener [María, Maria José]
-    //         ↓
-    // 4. Convertir esos usuarios en HTML
-    //         ↓
-    // 5. Mostrar esas cards en pantalla
 });
+
+// Evento de filtros (actúan sobre la lista completa, no sobre la búsqueda)
+const applyFilterButton = document.getElementById("applyFilter")!;
+applyFilterButton.addEventListener("click", function () {
+    let result = mockUserList;
+
+    const level = (document.getElementById("levelOption") as HTMLSelectElement).value;
+    if (level !== "") {
+        result = filterBySeniority(result, level as Seniority);
+    }
+
+    const stack = (document.getElementById("stack") as HTMLInputElement).value;
+    if (stack !== "") {
+        result = filterByStack(result, stack);
+    }
+
+    const employment = (document.getElementById("employmentOption") as HTMLSelectElement).value;
+    if (employment !== "") {
+        result = filterByEmploymentStatus(result, employment as EmploymentStatus);
+    }
+
+    const onlyActive = (document.getElementById("activityOption") as HTMLInputElement).checked;
+    result = filterByActivity(result, onlyActive);
+
+    const app = document.getElementById("app")!;
+    app.innerHTML = renderFullProfilePage(result);
+});
+
 
 // *************renderJobPage()***************
 

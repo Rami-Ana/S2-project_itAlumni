@@ -1,4 +1,5 @@
-import { User } from "../../models/User";
+import { User } from "../models/User";
+import type { EmploymentStatus, Seniority } from "../types/IUser";
 
 export function searchUsers(searchQuery: string, usersList: User[]): User[] {
     const searchResults: User[] = [];
@@ -12,8 +13,28 @@ export function searchUsers(searchQuery: string, usersList: User[]): User[] {
         const matchSkill = candidate.skills.some(skill => skill.toLowerCase().includes(targetKeyword));
 
         if (matchName || matchSkill) {
-            searchResults.push(candidate); 
+            searchResults.push(candidate);
         }
     }
     return searchResults;
+}
+
+export function filterByActivity(userList: User[], activity: boolean): User[] {
+    if (!activity) { return userList; }
+
+    return userList.filter(user => user.isRecentlyActive);
+}
+
+export function filterBySeniority(userList: User[], level: Seniority): User[] {
+
+    return userList.filter(user => user.seniority === level);
+}
+
+
+export function filterByStack(userList: User[], stack: string): User[] {
+    return userList.filter(user => user.skills.includes(stack));
+}
+
+export function filterByEmploymentStatus(userList: User[], status: EmploymentStatus): User[] {
+    return userList.filter(user => user.employmentStatus === status);
 }
