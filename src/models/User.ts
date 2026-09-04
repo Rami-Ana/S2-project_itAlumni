@@ -18,6 +18,7 @@ export class User {
         this._skills = skills;
         this._seniority = seniority;
         this._isRecentlyActive = isRecentlyActive;
+        //filter? 
     }
 
     get name(): string { return this._name; }

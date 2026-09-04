@@ -12,3 +12,11 @@ export function generateDummyUsers(): User[] {
 
     return mockUsers;
 }
+
+
+
+// export const mockUsers: User[] = [
+//   new User("Anna Puig", "Barcelona", "available", ["JavaScript", "React"], "junior", true),
+//   new User("Marc Solé", "Terrassa", "unavailable", ["Python", "Django"], "mid", false),
+//   new User("Laia Ferrer", "Sabadell", "available", ["TypeScript", "Node"], "senior", true),
+// ];

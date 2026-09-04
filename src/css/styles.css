@@ -1,0 +1,113 @@
+/*
+RESPONSIVE
+-> MOBILE 400px: El 95% serían 380px = se adapta a la minima (300px + 5% margen)
+-> TABLET 800px: El 95% serían 760px =  760px en total
+-> DESKTOP 1920px de ancho: El 95% serían 1824px
+ clamp() detecta 1824px supera el máximo permitido y clava el contenedor en 1200px + margin: auto.
+*/
+
+/*INVESTIGAR:
+- MODO OSCURO @media query
+- ADAPTAR MOBILE NAV
+- INVESTIGAR el Graid repeat(auto-fit, minmax(280px, 1fr))
+- INVESTIGAR :focus-visible (navegar con TAB)
+*/
+
+/*18.75rem = 300px | 43.75rem = 700px | 75rem = 1200px*/
+
+
+:root {
+
+  /* Layout & Responsive */
+  /* --max-width-text: clamp(18.75rem, 90%, 43.75rem); */
+  /* --max-width-card: clamp(18.75rem, 95%, 75rem); */
+
+  /* --max-width-text: clamp(18.75rem, 90%, 43.75rem); */
+  /*calc(100% -20); tambien se epuede usar*/
+  /* --max-width-card: clamp(18.75rem, 95%, 75rem); */
+
+  --text: #171A1F;
+  --text-secondary: #565E6C;
+  --text-light: #9095A0;
+  --text-placeholder: #BCC1CA;
+
+  --brand-primary: #CE0A86;
+  --brand-gradient: linear-gradient(to right,#873AAA, #DF007F);
+
+  --bg-brand-light: #FEF0F9;
+  --bg-secondary: #F3F4F6;
+
+  --bg-form-input: #F3F4F6;
+  --icon-form-input: #171A1F;
+
+  --rating-star: #F3C63F;
+  --bg-rrss-google: #FDF2F2;
+  --bg-rrss-facebook: #F1F8FD;
+  --text-rrss-google: #DE3B40;
+  --text-rrss-facebook: #379AE6;
+
+  --border-default: #DEE1E6;
+  --border-dark-mode: #BCC1CA;
+
+  --sans: 'Source Sans 3', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+/*
+  font-size: 1 rem;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text); 
+  background: var(--bg); 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  */
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {max-width: 100%; height: auto; display: block;}
+
+/* ======================= size <= 393px ======================== */
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 1rem; /*16px*/
+  font-weight: 400;
+  line-height: 1.5;  
+  font-family: var(--sans);
+}
+
+.mt-xs { margin-top: 4px; }
+.mt-s  { margin-top: 8px; }
+.mt-m  { margin-top: 16px; }
+.mt-l  { margin-top: 24px  }
+
+/* ======================= size >= 768px ======================== */
+@media (min-width: 768px){
+  body {
+    background-color: #fff;
+    color: var(--text);
+    font-size: 1rem;       /* 16px */
+    line-height: 1.5;
+  }
+}
+
+/* 
+  h1: weight: 700; style: bold; size: 64px; line-height:84px;
+  h2: weight: 400; style: regular; size: 40px; line-height:56px; 
+  h3: weight: 400; style: regular; size: 32px; line-height:48px; 
+  text base: size: 16px;
+  text: weight: 400; style: regular; size: 16px; line-height:26px; 
+  nav: weight: 400; style: regular; size: 14px; line-height:22px; 
+  footer-title: weight: 600; style: semibold; size: 20px; line-height: 30px; 
+  footer: weight: 400; style: regular; size:18; line-height: 28px; 
+   */

@@ -1,0 +1,82 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 393px;
+    height: 76px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+
+    background: var(--bg);
+    border-top: 1px solid rgba(23, 26, 31, 0.12);
+}
+
+.navbar__label {
+    font-family: var(--sans);
+}
+
+.navbar__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    background: none;
+    border: none;
+    padding: 8px 0;
+
+    font-size: 10px;
+    font-family: var(--sans);
+    color: var(--text-secondary);
+}
+
+.navbar__icon {
+    width: 24px;
+    height: 24px;
+
+    /* para Chrome / Edge / Safari */
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-image: none;
+
+    /* estándar */
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-image: none;
+
+
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    background-color: var(--text-secondary);
+}
+
+.navbar__item--active .navbar__label {
+    color: var(--brand-primary);
+    font-weight: 600;
+}
+
+.navbar__item--active .navbar__icon {
+    background-color: var(--brand-primary);
+}
+
+.navbar__item--active .navbar__icon--home {
+    mask-image: url("../assets/icons/navbar__icon--home--active.svg");
+}
+
+.navbar__item--active .navbar__icon--network {
+    mask-image: url("../assets/icons/navbar__icon--network--active.svg");
+}
+
+.navbar__item--active .navbar__icon--jobs {
+    mask-image: url("../assets/icons/navbar__icon--job--active.svg");
+}
+
+.navbar__item--active .navbar__icon--profile {
+    mask-image: url("../assets/icons/navbar__icon--profile--active.svg");
+}

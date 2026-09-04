@@ -1,0 +1,87 @@
+/* ================ WELCOME ================*/
+
+@import "./styles.css";
+@import "./buttons.css";
+@import "./typography.css";
+
+
+.welcome-mobile {
+  max-width: 393px;
+  height: 100vh;
+
+  margin: 0 auto;     /* centrado horizontal*/
+  padding: 30px 0px;  /* arriba + abajo*/
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* botón abajo */
+  text-align: center;
+}
+
+.welcome-mobile__content {
+  /* width: 100%; DESKTOP */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra logo + texto verticalmente */
+  flex-grow: 1;  /*ocupa espacio entre top y botón.*/
+  gap: 24px;
+
+  padding: 0px 50px;  /* horizontal*/
+}
+
+.welcome-mobile__logo { width: 285px; height: auto;} 
+
+.welcome-mobile__content p { font-size: 18px; color: var(--text-primary);}
+ 
+.welcome-mobile__cta { margin: 0 35px; width: auto; }
+
+
+
+/* ================ HOME ================*/
+
+.mobile-home__container {}
+.mobile-home__wrapper {
+    padding: 0 20px;
+}
+
+.mobile-home__cards-grid {/*2 GRID*/
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.mobile-home-card {  /*CARD inidvidual*/
+background: #fff;
+border-radius: 10px;
+text-align: left;
+}
+
+.mobile-home-card__img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mobile-home-card__title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mobile-home-card__text {
+  margin-top: 4px;
+  
+}
+
+.mobile-home-card__btn {
+  margin-top: 10px;
+}
+
+
+
+/* @media (min-width: 768px) {
+
+} */

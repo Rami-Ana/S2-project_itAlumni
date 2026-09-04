@@ -1,13 +1,15 @@
 import { ProfileCard } from '../components/ProfileCard';
 import { User } from '../models/User';
+import { renderMobileSearch } from "../components/mobile/MobileSearch";
 
-export function renderMemberSearchBar(): string {
-    return `
-    <label for="nameSearchUser">Buscar:</label>
-    <input type ="text" id="nameSearchUser" placeholder="Escribe el nombre o la skill">
-    <input type ="button" id="searchUser" class="cta-style" value="Buscar">
-`;
-}
+// export function renderMemberSearchBar(): string {
+//     return `
+//     <label for="querySearchUser">Buscar:</label>
+//     <input type ="text" id="querySearchUser" placeholder="Escriu el nom o les skills">
+//     <button> 
+//     <input type ="button" id="searchUser" class="cta-style" value="Buscar">
+// `;
+// }
 
 export function renderMemberFilterControl(): string {
     return `
