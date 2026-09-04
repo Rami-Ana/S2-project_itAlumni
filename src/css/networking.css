@@ -1,0 +1,69 @@
+@import "./styles.css";
+@import "./buttons.css";
+@import "./typography.css";
+
+
+.networking-card {
+    cursor: pointer;
+    width: 100%;    /* max-width: 393px; */
+    /* height:auto; */
+    padding: 12px;
+
+    display: flex;
+    flex-direction: row; /*img right*/
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 6px;
+
+    box-shadow: 0 0 2px rgba(23, 26, 31, 0.12);
+    background: #fff;
+
+    /* margin-bottom: 16px; */
+}
+
+.networking-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1; /* OCUPA EL ESPACIO IZQUIERDO */
+}
+
+.networking-card__img {
+    width: 112px;
+    height: 76px;
+    border-radius: 4px; /* La imagen se recorta y NO se deforma */
+    object-fit: cover; /* Centrada */
+    object-position: center;
+}
+
+
+/* .mobile-networking__container {} */
+
+.mobile-networking__wrapper {
+      padding: 16px;
+}
+
+.mobile-networking__cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+
+/* import type { IUser } from "../../../types/IUser";
+
+export function renderMobileNetworkingCard(user: IUser, imgSrc:string,) {
+  return `
+    <div class="networking-card">
+      <div class="networking-card__info">
+        <h3 class="text-m text-bold text-primary">${user.name}</h3>
+        <p class="text-s text-secondary">Class of ${user.classYear}</p>
+        <p class="text-s text-secondary">${user.position}</p>
+      </div>
+
+      <img src="${imgSrc}" alt="${user.name}" class="networking-card__avatar">
+    </div>
+  `;
+} */

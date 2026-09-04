@@ -11,6 +11,8 @@ export type Seniority =
 
 export interface IUser {
     name: string;
+    classYear: number;
+    position: string;
     location: string;
     employmentStatus: EmploymentStatus;
     skills: string[];

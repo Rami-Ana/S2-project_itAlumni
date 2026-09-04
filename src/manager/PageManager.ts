@@ -1,6 +1,11 @@
 import { renderHome, renderWelcome } from "../pages/home";
+import { renderNetworking } from "../pages/networking";
+// import { renderJobs } from "../pages/jobs";
+// import { renderEvents } from "../pages/events";
 
-type PageName = "welcome" | "home"; //| "jobs" | "events";
+
+
+type PageName = "welcome" | "home" | "networking"; //| "jobs" | "events";
 
 export class PageManager {
     private root: HTMLElement;// ESTO ES UNA CAJA que guardará un DOM: es el contenedor donde vas a pintar cada página, una tras otra.
@@ -21,6 +26,8 @@ export class PageManager {
                 return renderWelcome();
             case "home":
                 return renderHome();
+                case "networking":
+                return renderNetworking();
             // case "jobs":
             // return renderJobs();      
             // case "events":
@@ -37,6 +44,18 @@ export class PageManager {
             if (target.id === "joinButton") {
                 this.loadPage("home");
             }
+
+            if (target.id === "page-networking") {
+                this.loadPage("networking");
+            }
+
+            // if (target.id === "page-jobs") {
+            //     this.loadPage("jobs");
+            // }
+
+            //  if (target.id === "page-events") {
+            //     this.loadPage("events");
+            // }
         });
     }
 }

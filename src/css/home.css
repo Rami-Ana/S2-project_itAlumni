@@ -34,7 +34,7 @@
 
 .welcome-mobile__content p { font-size: 18px; color: var(--text-primary);}
  
-.welcome-mobile__cta { margin: 0 35px; width: auto; }
+.welcome-mobile__cta { width: auto; }
 
 
 

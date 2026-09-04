@@ -27,17 +27,20 @@ export function renderMobileHome(): string {
         ${renderMobileSearch()}
 
         <div class="mobile-home__cards-grid">
-          ${renderMobileHomeCard(
+          ${renderMobileHomeCard( 
             "src/assets/images/image--template__square.png",
             "Networking",
             "Connect with professionals in your field.",
-            "Explore"
+            "Explore",
+            "page-networking"
+
           )}
           ${renderMobileHomeCard(
             "src/assets/images/image--template__square.png",
             "Job Opportunities",
             "Discover openings tailored to your skills.",
-            "Search Jobs"
+            "Search Jobs",
+            "page-jobs"
           )}
         </div>
 
