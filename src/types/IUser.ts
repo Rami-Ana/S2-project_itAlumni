@@ -1,7 +1,7 @@
-export type EmploymentStatus =
-    | 'available'
-    | 'unavailable'
-    | 'specific-hours';
+// export type EmploymentStatus =
+//     | 'available'
+//     | 'unavailable'
+//     | 'specific-hours';
 
 export type Seniority =
     | 'junior'
@@ -14,7 +14,7 @@ export interface IUser {
     classYear: number;
     position: string;
     location: string;
-    employmentStatus: EmploymentStatus;
+    employmentStatus: boolean;
     skills: string[];
     seniority: Seniority;
     isRecentlyActive: boolean;

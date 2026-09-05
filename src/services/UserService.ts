@@ -1,5 +1,5 @@
 import { User } from "../models/User";
-import type { EmploymentStatus, Seniority } from "../types/IUser";
+import type { Seniority } from "../types/IUser";
 
 export function searchUsers(searchQuery: string, usersList: User[]): User[] {
     const searchResults: User[] = [];
@@ -31,6 +31,6 @@ export function filterByStack(userList: User[], stack: string): User[] {
     return userList.filter(user => user.skills.includes(stack));
 }
 
-export function filterByEmploymentStatus(userList: User[], status: EmploymentStatus): User[] {
+export function filterByEmploymentStatus(userList: User[], status: boolean): User[] {
     return userList.filter(user => user.employmentStatus === status);
 }

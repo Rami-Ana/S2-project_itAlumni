@@ -1,33 +1,34 @@
 import { renderHome, renderWelcome } from "../pages/home";
 import { renderNetworking } from "../pages/networking";
+// import { generateDummyUsers } from "../mocks/mockUsers";
 // import { renderJobs } from "../pages/jobs";
 // import { renderEvents } from "../pages/events";
 
 
-
-type PageName = "welcome" | "home" | "networking"; //| "jobs" | "events";
+type PageName = "welcome" | "home" | "networking";// | "applyFilter"; //| "jobs" | "events";
 
 export class PageManager {
-    private root: HTMLElement;// ESTO ES UNA CAJA que guardará un DOM: es el contenedor donde vas a pintar cada página, una tras otra.
+    private root: HTMLElement;// BOX guardar un DOM: es el contenedor donde vas a pintar cada página, una tras otra.
 
     constructor(rootSelector: string) { //rootSelector = #app
         this.root = document.querySelector(rootSelector) as HTMLElement;
+        this.bindEvents(); /* Escucha de clicks */
     }
- 
-
-    loadPage(page: PageName): void { //SOLICITA  → pinta ese HTML en el DOM (efecto en pantalla).
-        this.root.innerHTML = this.getPageHTML(page); //page = home
-        this.bindEvents();
+//  query: string = ""
+    loadPage(page: PageName, query: string = ""): void { //SOLICITA  → pinta ese HTML en el DOM (efecto en pantalla).
+        this.root.innerHTML = this.getPageHTML(page, query) //page = home query=seach
     }
 
-    private getPageHTML(page: PageName): string { //FABRICA → decide qué HTML corresponde a una página (lógica de decisión).
+    private getPageHTML(page: PageName, query: string): string { //FABRICA → decide qué HTML corresponde a una página (lógica de decisión).
         switch (page) {
             case "welcome":
                 return renderWelcome();
             case "home":
                 return renderHome();
-                case "networking":
-                return renderNetworking();
+            case "networking":
+                return renderNetworking(query);        
+            // case "applyFilter":
+            //     return handleFilter();
             // case "jobs":
             // return renderJobs();      
             // case "events":
@@ -37,17 +38,29 @@ export class PageManager {
         }
     }
 
+//   // -----------------------------
+//   // Listeners:
+//   // -----------------------------
+
     private bindEvents(): void {
         this.root.addEventListener("click", (event) => {
             const target = event.target as HTMLElement;
 
             if (target.id === "joinButton") {
                 this.loadPage("home");
-            }
-
+            } 
             if (target.id === "page-networking") {
                 this.loadPage("networking");
             }
+            // if (target.id === "applyFilter") {
+            //     this.handleFilter();
+            // }
+            // //INVESTIGAR:
+            // if (target.classList.contains("chip")) {
+            //     document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+            //     target.classList.add("active");
+            // }
+
 
             // if (target.id === "page-jobs") {
             //     this.loadPage("jobs");
@@ -57,130 +70,67 @@ export class PageManager {
             //     this.loadPage("events");
             // }
         });
+
+        this.root.addEventListener("keyup", (event) => {
+            const target = event.target as HTMLElement;
+            const keyboardEvent = event as KeyboardEvent;
+
+            if (target.id === "searchInput" && keyboardEvent.key === "Enter") {
+                const input = target as HTMLInputElement; // ← esta línea declara "input"
+                this.loadPage("networking", input.value);
+            }
+        });
     }
 }
 
+// private handleFilter(): void {
+//   const allUsers = generateDummyUsers();
+//   let result = allUsers;
 
-
-
-
-
-// joinButton.addEventListener("click", () => {
-//   const pageManager = new PageManager();
-//   pageManager.load("mobile-home");
-// });
-
-
-
-
-
-
-
-
-// // src/manager/PageManager.ts RESPONSABILIDADES:
-// // limpie el DOM
-// // cargue HTML de páginas (HU3.1, HU3.2, HU3.3…)
-// // Activa los listeners de esa página
-// // inicialice componentes
-// // conecte navbar + páginas
-// // gestione navegación
-// // src/manager/PageManager.ts
-
-// // (Home, Networking, Jobs, Events, Profile)
-
-
-// import { generateDummyUsers } from "../mocks/mockUsers";
-
-// // HU3.1 — MemberSearch
-// import { renderMemberSearchPage } from "../pages/MemberSearch";
-
-// import {
-//   searchUsers,
-//   filterByActivity,
-//   filterBySeniority,
-//   filterByStack,
-//   filterByEmploymentStatus
-// } from "../services/UserService";
-
-// import type { EmploymentStatus, Seniority } from "../types/IUser";
-
-// export class PageManager {
-//   private root: HTMLElement;
-//   private users = generateDummyUsers();
-
-//   constructor(rootId: string) {
-//     this.root = document.getElementById(rootId)!;
+//   // NIVELL (chip)
+//   const activeChip = document.querySelector(".chip.active");
+//   if (activeChip) {
+//     const level = activeChip.dataset.level; // <-- SIN "!"
+//     result = result.filter(u => u.seniority === level);
 //   }
 
-//   // -----------------------------
-//   // MÉTODO PRINCIPAL DE NAVEGACIÓN
-//   // -----------------------------
-//   load(page: string): void {
-//       // if (page === "member-search") {
-//       // this.renderMemberSearch();
-//     switch (page) {
-//       case "member-search":
-//         this.renderMemberSearch();
-//         break;
-
-//       default:
-//         this.root.innerHTML = "<p>Pàgina no trobada</p>";
-//         break;
-//     }
+//   // STACK
+//   const stack = (document.getElementById("stack") as HTMLInputElement).value.toLowerCase();
+//   if (stack !== "") {
+//     result = result.filter(u =>
+//       u.skills.some(skill => skill.toLowerCase().includes(stack))
+//     );
 //   }
+
+//   // DISPONIBILITAT (boolean)
+//   const employment = (document.getElementById("employmentOption") as HTMLInputElement).checked;
+//   if (employment) {
+//     result = result.filter(u => u.employmentStatus === true);
+//   }
+
+//   // ACTIVITAT RECENT (boolean)
+//   const active = (document.getElementById("activityOption") as HTMLInputElement).checked;
+//   if (active) {
+//     result = result.filter(u => u.isRecentlyActive === true);
+//   }
+
+//   this.root.innerHTML = renderNetworking("", result);
+// }
+
+// }
+
 
 //   // -----------------------------
 //   // HU3.1 — MemberSearch
 //   // -----------------------------
-//   private renderMemberSearch(): void {
-//     this.root.innerHTML = renderMemberSearchPage(this.users);
-//     this.attachMemberSearchEvents();
-//   }
 
-//   private attachMemberSearchEvents(): void {
-//     this.root.addEventListener("click", (event) => {
-//       const target = event.target as HTMLElement;
-
-//       if (target.id === "searchUser") {this.handleSearch();}
-//       if (target.id === "applyFilter") {this.handleFilter();}
-//     });
-//   }
-
-//   private handleSearch(): void {
-//     const value = (document.getElementById("nameSearchUser") as HTMLInputElement).value;
-//     const filtered = searchUsers(value, this.users);
-//     this.root.innerHTML = renderMemberSearchPage(filtered);
-//   }
-
-//   private handleFilter(): void {
-//     let result = this.users;
-
-//     const level = (document.getElementById("levelOption") as HTMLSelectElement).value;
-//     if (level !== "") {
-//       result = filterBySeniority(result, level as Seniority);
-//     }
-
-//     const stack = (document.getElementById("stack") as HTMLInputElement).value;
-//     if (stack !== "") {
-//       result = filterByStack(result, stack);
-//     }
-
-//     const employment = (document.getElementById("employmentOption") as HTMLSelectElement).value;
-//     if (employment !== "") {
-//       result = filterByEmploymentStatus(result, employment as EmploymentStatus);
-//     }
-
-//     const onlyActive = (document.getElementById("activityOption") as HTMLInputElement).checked;
-//     result = filterByActivity(result, onlyActive);
-
-//     this.root.innerHTML = renderMemberSearchPage(result);
 
 //   // -----------------------------
-//   // HU3.2 — MemberProfile
+//   // HU3.3 — FilterMemberProfiles
 //   // -----------------------------
 
-// //  método renderMemberProfile()
-// // load("member-profile")
 
-//   }
-// }
+//   // -----------------------------
+//   // MemberProfile (fuera de MVP)
+//   // -----------------------------
+
