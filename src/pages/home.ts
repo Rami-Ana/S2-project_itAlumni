@@ -10,11 +10,11 @@ export function renderWelcome(): string {
   return `
   <div class="welcome-mobile">
     <div class="welcome-mobile__content">
-      <img src="/brand__logo--primary.png" alt="Logo Alumni" class="welcome-mobile__logo">
-        <p>Connectant i empoderant a la nostra comunitat global d’alumnes</p>
+      <img src="/brand__logo--primary.png" alt="Alumni Logo" class="welcome-mobile__logo">
+        <p>Connecting and empowering our global community</p>
     </div>
 
-      <button class="btn btn--gradient btn--m welcome-mobile__cta" id="joinButton" aria-label="Accedir a IT Alumni">Uneix-te</button>
+      <button class="btn btn--gradient btn--m welcome-mobile__cta" id="joinButton" aria-label="Access to IT Alumni">Join in</button>
   </div>
   `;
 }

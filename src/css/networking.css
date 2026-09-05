@@ -19,7 +19,6 @@
     box-shadow: 0 0 2px rgba(23, 26, 31, 0.12);
     background: #fff;
 
-    /* margin-bottom: 16px; */
 }
 
 .networking-card__info {
@@ -32,8 +31,8 @@
 .networking-card__img {
     width: 112px;
     height: 76px;
-    border-radius: 4px; /* La imagen se recorta y NO se deforma */
-    object-fit: cover; /* Centrada */
+    border-radius: 4px; 
+    object-fit: cover; 
     object-position: center;
 }
 
@@ -51,19 +50,89 @@
     margin-top: 20px;
 }
 
+.filter-panel {
+  margin-top: 20px;
+}
 
-/* import type { IUser } from "../../../types/IUser";
+.filter-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var( --text);
+}
 
-export function renderMobileNetworkingCard(user: IUser, imgSrc:string,) {
-  return `
-    <div class="networking-card">
-      <div class="networking-card__info">
-        <h3 class="text-m text-bold text-primary">${user.name}</h3>
-        <p class="text-s text-secondary">Class of ${user.classYear}</p>
-        <p class="text-s text-secondary">${user.position}</p>
-      </div>
+.filter-panel__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-      <img src="${imgSrc}" alt="${user.name}" class="networking-card__avatar">
-    </div>
-  `;
+.filter-panel__chips {
+  display: flex;
+  gap: 8px;
+  /* margin-bottom: 16px; */
+}
+
+.chip {
+  appearance: none;
+  border: 1px solid var(--border-default);
+  background: #fff;
+  color: var(--text-placeholder);
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.chip--active {
+  background: var(--brand-primary);
+  color: #fff;
+  border-color: var(--brand-primary);
+}
+
+.filter-panel__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-placeholder);
+  /* border-color: var(--text-placeholder); */
+  cursor: pointer;
+}
+
+/* .filter-panel__checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-primary);
+  cursor: pointer;
 } */
+
+.filter-panel__checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 2px solid var(--border-default);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.filter-panel__checkbox input[type="checkbox"]:checked {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.filter-panel__checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

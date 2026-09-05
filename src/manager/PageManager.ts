@@ -1,5 +1,8 @@
 import { renderHome, renderWelcome } from "../pages/home";
 import { renderNetworking } from "../pages/networking";
+import type { NetworkingFilters } from "../types/INetworkingFilters";
+import type { Seniority } from "../types/IUser"; 
+
 // import { generateDummyUsers } from "../mocks/mockUsers";
 // import { renderJobs } from "../pages/jobs";
 // import { renderEvents } from "../pages/events";
@@ -8,25 +11,28 @@ import { renderNetworking } from "../pages/networking";
 type PageName = "welcome" | "home" | "networking";// | "applyFilter"; //| "jobs" | "events";
 
 export class PageManager {
-    private root: HTMLElement;// BOX guardar un DOM: es el contenedor donde vas a pintar cada página, una tras otra.
+    private root: HTMLElement;// BOX guardar un DOM: contenedor
+    private networkingFilters: NetworkingFilters;
 
     constructor(rootSelector: string) { //rootSelector = #app
         this.root = document.querySelector(rootSelector) as HTMLElement;
-        this.bindEvents(); /* Escucha de clicks */
+        this.networkingFilters = { query: "", level: "", onlyActive: false, onlyAvailable: false };
+
+        this.bindEvents(); 
     }
 //  query: string = ""
-    loadPage(page: PageName, query: string = ""): void { //SOLICITA  → pinta ese HTML en el DOM (efecto en pantalla).
-        this.root.innerHTML = this.getPageHTML(page, query) //page = home query=seach
+    loadPage(page: PageName): void { //SOLICITA  → HTML en el DOM
+        this.root.innerHTML = this.getPageHTML(page); //page = home query=seach
     }
 
-    private getPageHTML(page: PageName, query: string): string { //FABRICA → decide qué HTML corresponde a una página (lógica de decisión).
+    private getPageHTML(page: PageName): string { //FABRICA → decide qué HTML corresponde a una página (lógica de decisión).
         switch (page) {
             case "welcome":
                 return renderWelcome();
             case "home":
                 return renderHome();
             case "networking":
-                return renderNetworking(query);        
+                return renderNetworking(this.networkingFilters);        
             // case "applyFilter":
             //     return handleFilter();
             // case "jobs":
@@ -34,7 +40,7 @@ export class PageManager {
             // case "events":
             // return renderEvents();
             default:
-                return "<p>Página no encontrada</p>";
+                return "<p>Page not found</p>";
         }
     }
 
@@ -52,15 +58,11 @@ export class PageManager {
             if (target.id === "page-networking") {
                 this.loadPage("networking");
             }
-            // if (target.id === "applyFilter") {
-            //     this.handleFilter();
-            // }
-            // //INVESTIGAR:
-            // if (target.classList.contains("chip")) {
-            //     document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-            //     target.classList.add("active");
-            // }
-
+            if (target.classList.contains("chip")) {
+                    const level = target.dataset.level as Seniority;
+                    this.networkingFilters.level = this.networkingFilters.level === level ? "" : level;
+                    this.loadPage("networking");
+                }
 
             // if (target.id === "page-jobs") {
             //     this.loadPage("jobs");
@@ -71,13 +73,28 @@ export class PageManager {
             // }
         });
 
+            this.root.addEventListener("change", (event) => {
+            const target = event.target as HTMLInputElement;
+
+            if (target.id === "onlyActive") {
+                this.networkingFilters.onlyActive = target.checked;
+                this.loadPage("networking");
+            }
+
+            if (target.id === "onlyAvailable") {
+                this.networkingFilters.onlyAvailable = target.checked;
+                this.loadPage("networking");
+            }
+        });
+
         this.root.addEventListener("keyup", (event) => {
             const target = event.target as HTMLElement;
             const keyboardEvent = event as KeyboardEvent;
 
             if (target.id === "searchInput" && keyboardEvent.key === "Enter") {
-                const input = target as HTMLInputElement; // ← esta línea declara "input"
-                this.loadPage("networking", input.value);
+                const input = target as HTMLInputElement;
+                this.networkingFilters.query = input.value;
+                this.loadPage("networking");
             }
         });
     }

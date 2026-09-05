@@ -86,7 +86,8 @@ italumni/
 │   ├── types (interfaces sin lógica) 
 │   │   ├── IUser.ts
 │   │   ├── IJob.ts                             (PENDIENDITE HACER) 
-│   │   └── IEvent.ts                           (PENDIENDITE HACER) 
+│   │   ├── IEvent.ts                           (PENDIENDITE HACER)
+│   │   └── INetworkingFilters.ts                           
 │   │
 │   ├── services/ → lógica de negocio (Filtrar, buscar, ordenar, etc.)
 │   │    ├── UserService → filtrar, buscar, ordenar usuarios
