@@ -1,0 +1,27 @@
+.networking-card {
+    cursor: pointer;
+    width: 100%;    /* max-width: 393px; */
+    padding: 12px;
+    display: flex;
+    flex-direction: row; /*img right*/
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 0 2px rgba(23, 26, 31, 0.12);
+    background: #fff;
+}
+
+.networking-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1; /* OCUPA EL ESPACIO IZQUIERDO */
+}
+
+.networking-card__img {
+    width: 112px;
+    height: 76px;
+    border-radius: 4px; 
+    object-fit: cover; 
+    object-position: center;
+}

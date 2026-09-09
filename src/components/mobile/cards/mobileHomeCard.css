@@ -1,0 +1,26 @@
+.mobile-home-card {
+  background: #fff;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.mobile-home-card__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mobile-home-card__title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mobile-home-card__text {
+  margin-top: 4px;
+
+}
+
+.mobile-home-card__btn {
+  margin-top: 10px;
+}

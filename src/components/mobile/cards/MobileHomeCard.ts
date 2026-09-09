@@ -11,24 +11,3 @@ export function renderMobileHomeCard(imgSrc:string,title:string, description:str
     </div>
   `;
 }
-// no se que es más correcto si poner varias clases en así:<p class="text-xxs text-regular text-light text-left" >${description}</p> o poner una unica clase con esos parametros agrupados:
-// .mobile-home-card__text {
-//   margin-top: 4px;
-//   font-size: 12pageXOffset;
-//   color: var (--text-light);
-//   text-align: left;
-// }
-
-
-
-// .margin-top-home-card__title {
-//   margin-top: 8px;
-// }
-
-// .mobile-home-card__text {
-//   margin-top: 4px;
-// }
-
-// .mobile-home-card__btn {
-//   margin-top: 8px;
-// }

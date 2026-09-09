@@ -15,8 +15,3 @@ export function renderMobileNetworkingCard(user: IUser, imgSrc:string) {
   `;
 }
 
-// networking-card__name
-// networking-card__year
-// networking-card__position
-      // <div class="networking-card__img">
-      // </div>

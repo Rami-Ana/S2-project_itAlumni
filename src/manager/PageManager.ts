@@ -1,29 +1,67 @@
 import { renderHome, renderWelcome } from "../pages/home";
 import { renderNetworking } from "../pages/networking";
 import type { NetworkingFilters } from "../types/INetworkingFilters";
-import type { Seniority } from "../types/IUser"; 
-
-// import { generateDummyUsers } from "../mocks/mockUsers";
-// import { renderJobs } from "../pages/jobs";
-// import { renderEvents } from "../pages/events";
+import type { Seniority } from "../types/IUser";
+import { renderNavbarDesktop } from "../components/desktop/navbar/DesktopNavbar";
+import { renderNavbarMobile } from "../components/mobile/navbar/MobileNavbar";
 
 
-type PageName = "welcome" | "home" | "networking";// | "applyFilter"; //| "jobs" | "events";
+type PageName = "welcome" | "home" | "networking";// | "jobs" | "events";
+
 
 export class PageManager {
     private root: HTMLElement;// BOX guardar un DOM: contenedor
+    private navbarRoot: HTMLElement;
     private networkingFilters: NetworkingFilters;
+    private currentPage: PageName; /* = "welcome";*/
 
     constructor(rootSelector: string) { //rootSelector = #app
         this.root = document.querySelector(rootSelector) as HTMLElement;
+        this.navbarRoot = document.querySelector("#navbar-root") as HTMLElement;
         this.networkingFilters = { query: "", level: "", onlyActive: false, onlyAvailable: false };
+        this.currentPage = "welcome";
 
-        this.bindEvents(); 
+        this.bindEvents();
+        this.init();         // ← vuelve a inicio, al recargar
+        this.bindResize();   // ← para render auto
     }
-//  query: string = ""
+
+    private init(): void {
+        const isMobile = window.innerWidth < 768;
+        this.loadPage(isMobile ? "welcome" : "home");
+    }
+
+    private bindResize(): void {
+        window.addEventListener("resize", () => {
+            this.renderNavbar(); // solo nav, no cambia de page
+        });
+    }
+    // --------------LOAD PAGE----------
     loadPage(page: PageName): void { //SOLICITA  → HTML en el DOM
-        this.root.innerHTML = this.getPageHTML(page); //page = home query=seach
+        this.currentPage = page;
+        this.root.innerHTML = this.getPageHTML(page);
+        this.renderNavbar();
     }
+
+    private renderNavbar(): void {
+        if (this.navbarRoot === null) {
+            return;
+        }
+        if (this.currentPage === "welcome") {
+            this.navbarRoot.innerHTML = "";
+            return;
+        }
+
+        const isMobile = window.innerWidth < 768;
+        
+        if (isMobile) {
+            this.navbarRoot.innerHTML = renderNavbarMobile(this.currentPage);
+        } else {
+            this.navbarRoot.innerHTML = renderNavbarDesktop(this.currentPage);
+        }
+    }
+
+    // this.navbarRoot.innerHTML = renderNavbarDesktop(this.currentPage);
 
     private getPageHTML(page: PageName): string { //FABRICA → decide qué HTML corresponde a una página (lógica de decisión).
         switch (page) {
@@ -32,7 +70,7 @@ export class PageManager {
             case "home":
                 return renderHome();
             case "networking":
-                return renderNetworking(this.networkingFilters);        
+                return renderNetworking(this.networkingFilters);
             // case "applyFilter":
             //     return handleFilter();
             // case "jobs":
@@ -44,9 +82,7 @@ export class PageManager {
         }
     }
 
-//   // -----------------------------
-//   // Listeners:
-//   // -----------------------------
+    // ------------Listeners: -----------------
 
     private bindEvents(): void {
         this.root.addEventListener("click", (event) => {
@@ -54,15 +90,15 @@ export class PageManager {
 
             if (target.id === "joinButton") {
                 this.loadPage("home");
-            } 
+            }
             if (target.id === "page-networking") {
                 this.loadPage("networking");
             }
             if (target.classList.contains("chip")) {
-                    const level = target.dataset.level as Seniority;
-                    this.networkingFilters.level = this.networkingFilters.level === level ? "" : level;
-                    this.loadPage("networking");
-                }
+                const level = target.dataset.level as Seniority;
+                this.networkingFilters.level = this.networkingFilters.level === level ? "" : level;
+                this.loadPage("networking");
+            }
 
             // if (target.id === "page-jobs") {
             //     this.loadPage("jobs");
@@ -73,7 +109,17 @@ export class PageManager {
             // }
         });
 
-            this.root.addEventListener("change", (event) => {
+        this.navbarRoot.addEventListener("click", (event) => {
+            const target = event.target as HTMLElement;
+            const link = target.closest("[data-page]") as HTMLElement | null;
+
+            if (link === null) { return; }
+
+            const page = link.dataset.page as PageName;
+            this.loadPage(page);
+        });
+
+        this.root.addEventListener("change", (event) => {
             const target = event.target as HTMLInputElement;
 
             if (target.id === "onlyActive") {
@@ -99,43 +145,6 @@ export class PageManager {
         });
     }
 }
-
-// private handleFilter(): void {
-//   const allUsers = generateDummyUsers();
-//   let result = allUsers;
-
-//   // NIVELL (chip)
-//   const activeChip = document.querySelector(".chip.active");
-//   if (activeChip) {
-//     const level = activeChip.dataset.level; // <-- SIN "!"
-//     result = result.filter(u => u.seniority === level);
-//   }
-
-//   // STACK
-//   const stack = (document.getElementById("stack") as HTMLInputElement).value.toLowerCase();
-//   if (stack !== "") {
-//     result = result.filter(u =>
-//       u.skills.some(skill => skill.toLowerCase().includes(stack))
-//     );
-//   }
-
-//   // DISPONIBILITAT (boolean)
-//   const employment = (document.getElementById("employmentOption") as HTMLInputElement).checked;
-//   if (employment) {
-//     result = result.filter(u => u.employmentStatus === true);
-//   }
-
-//   // ACTIVITAT RECENT (boolean)
-//   const active = (document.getElementById("activityOption") as HTMLInputElement).checked;
-//   if (active) {
-//     result = result.filter(u => u.isRecentlyActive === true);
-//   }
-
-//   this.root.innerHTML = renderNetworking("", result);
-// }
-
-// }
-
 
 //   // -----------------------------
 //   // HU3.1 — MemberSearch

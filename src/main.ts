@@ -2,63 +2,27 @@ import './css/styles.css';
 import './css/typography.css';
 import './css/buttons.css';
 import './css/home.css';
-import './css/header.css';
-import './css/search.css';
 import './css/networking.css';
-
-// import './css/nav.css';
-
+import './components/mobile/cards/mobileHomeCard.css';
+import './components/mobile/cards/mobileNetworkingCard.css';
+import './components/mobile/mobileSearch.css';
+import './components/mobile/mobileHeader.css';
+import './components/desktop/cards/desktopHomeCard.css';
+import './components/desktop/cards/testimonialCard.css';
+import './components/carouselNav.css';
+import './components/desktop/footer.css';
+import './components/desktop/navbar/desktopNavbar.css';
+import './components/mobile/navbar/mobileNavbar.css';
+import './components/desktop/cards/desktopNetworkingCard.css';
+import './components/desktop/networkingFilter/desktopNetworkingFilter.css';
+import './components/desktop/search/desktopSearch.css';
+import './components/desktop/networkingHeader/desktopNetworkingHeader.css'; 
 
 import { PageManager } from './manager/PageManager';
 
-const manager = new PageManager("#app"); //#: sintaxis CSS, si buscara sin id bucaria una etiqueta <app>.
-
-if(window.innerWidth < 768 ){
-manager.loadPage("welcome"); //invocamos metodo de PageManager y pasamos parametro
-}else{manager.loadPage("home");}
+new PageManager("#app"); //#: sintaxis CSS, si buscara sin id bucaria una etiqueta <app>.
 
 
-
-
-
-
-//luego usarenos manager porque esto solo recarga cada vez que cargamos navegador
-// if (window.innerWidth < 768) {
-//   app!.innerHTML = renderMobileHome();
-// } 
-// else {
-//   app!.innerHTML = renderHomeDesktop();
-// }
-
-
-
-// manager.load("home");
-
-
-// if (window.innerWidth < 768) {
-//   renderWelcomeMobile();
-// } else {
-//   renderHomeDesktop();
-// }
-
-
-
-
-// const manager = new PageManager("app");
-
-// renderNavbar(); // navbar aún sin navegación, solo se pinta
-
-// manager.load("member-search");// cargamos la página inicial (member-search)
-
-
-// import { renderNavbar } from "./components/navbar/navbar-mobile";
-
-// renderNavbar();
-
-
-// // *************renderJobPage()***************
-
-// // *************renderEventPage()***************
-
-
-
+// if(window.innerWidth < 768 ){
+// manager.loadPage("welcome"); //invocamos metodo de PageManager y pasamos parametro
+// }else{manager.loadPage("home");}

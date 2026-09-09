@@ -1,53 +1,14 @@
-@import "./styles.css";
-@import "./buttons.css";
-@import "./typography.css";
-
-
-.networking-card {
-    cursor: pointer;
-    width: 100%;    /* max-width: 393px; */
-    /* height:auto; */
-    padding: 12px;
-
-    display: flex;
-    flex-direction: row; /*img right*/
-    justify-content: space-between;
-    align-items: center;
-
-    border-radius: 6px;
-
-    box-shadow: 0 0 2px rgba(23, 26, 31, 0.12);
-    background: #fff;
-
-}
-
-.networking-card__info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    flex: 1; /* OCUPA EL ESPACIO IZQUIERDO */
-}
-
-.networking-card__img {
-    width: 112px;
-    height: 76px;
-    border-radius: 4px; 
-    object-fit: cover; 
-    object-position: center;
-}
-
-
-/* .mobile-networking__container {} */
+ /* .mobile-networking__container {} */
 
 .mobile-networking__wrapper {
-      padding: 16px;
+  padding: 16px;
 }
 
 .mobile-networking__cards-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .filter-panel {
@@ -58,7 +19,7 @@
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 12px;
-  color: var( --text);
+  color: var(--text);
 }
 
 .filter-panel__row {
@@ -71,7 +32,6 @@
 .filter-panel__chips {
   display: flex;
   gap: 8px;
-  /* margin-bottom: 16px; */
 }
 
 .chip {
@@ -97,16 +57,9 @@
   gap: 8px;
   font-size: 14px;
   color: var(--text-placeholder);
-  /* border-color: var(--text-placeholder); */
   cursor: pointer;
 }
 
-/* .filter-panel__checkbox input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--brand-primary);
-  cursor: pointer;
-} */
 
 .filter-panel__checkbox input[type="checkbox"] {
   appearance: none;
@@ -135,4 +88,27 @@
   border: solid #fff;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+
+
+.desktop-networking__wrapper {
+  padding: 90px 20px; 
+  max-width: 1280px; 
+  margin: 0 auto;   
+}
+
+.desktop-networking__title{
+  text-align: center;
+  color: var(--text-primary);
+  font-size: var(--text-xxl);
+  font-weight: 400;
+} 
+
+.desktop-networking__grid {
+  display: grid;
+  margin:  0 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 32px;
 }

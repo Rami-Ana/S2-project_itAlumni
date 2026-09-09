@@ -4,6 +4,9 @@ import { renderMobileNetworkingCard } from "../components/mobile/cards/MobileNet
 import { generateDummyUsers } from "../mocks/mockUsers";
 import { applyFilters } from "../services/UserService";
 import type { NetworkingFilters } from "../types/INetworkingFilters";
+import { renderDesktopNetworkingCard } from "../components/desktop/cards/DesktopNetworkingCard";
+import { renderDesktopNetworkingHeader } from "../components/desktop/networkingHeader/DesktopNetworkingHeader";
+
 
 export function renderNetworking(filters: NetworkingFilters): string {
   return window.innerWidth < 768
@@ -37,7 +40,6 @@ export function renderFilterPanel(filters: NetworkingFilters): string {
     </div>
   `;
 }
-
 export function renderMobileNetworking(filters: NetworkingFilters): string {
   const allUsers = generateDummyUsers();
   const users = applyFilters(allUsers, filters);
@@ -69,5 +71,24 @@ export function renderMobileNetworking(filters: NetworkingFilters): string {
 }
 
 export function renderDesktopNetworking(filters: NetworkingFilters): string {
-  return `<div class="networking"></div>`;
+    const allUsers = generateDummyUsers();
+  const users = applyFilters(allUsers, filters).slice(0, 4);;
+
+  let cardsHtml: string;
+  if (users.length === 0) {
+    cardsHtml = `<p class="text-secondary text-s text-center">No results found</p>`;
+  } else {
+    cardsHtml = users.map(user => renderDesktopNetworkingCard(user)).join("");
+  }
+return `
+  <div class="desktop-networking__wrapper">
+
+    ${renderDesktopNetworkingHeader(filters)}
+
+    <div class="desktop-networking__grid">
+      ${cardsHtml}
+    </div>
+
+  </div>
+`;
 }

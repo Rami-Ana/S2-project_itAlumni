@@ -32,7 +32,7 @@ RESPONSIVE
   --text-placeholder: #BCC1CA;
 
   --brand-primary: #CE0A86;
-  --brand-gradient: linear-gradient(to right,#873AAA, #DF007F);
+  --brand-gradient: linear-gradient(to right, #873AAA, #DF007F);
 
   --bg-brand-light: #FEF0F9;
   --bg-secondary: #F3F4F6;
@@ -52,7 +52,24 @@ RESPONSIVE
   --sans: 'Source Sans 3', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-/*
+  --radius-s: 10px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --spacing-s: 12px;
+  --spacing-m: 24px;
+  --spacing-l: 48px;
+
+
+  --text-xxs: 12px;
+  --text-xs:  14px;
+  --text-s: 16px;
+  --text-m:  18px;
+  --text-l:  20px; 
+  --text-xl: 24px;
+  --text-xxl: 32px;
+  --text-xxxl:64px;
+
+  /*
   font-size: 1 rem;
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -73,41 +90,47 @@ RESPONSIVE
   box-sizing: border-box;
 }
 
-img {max-width: 100%; height: auto; display: block;}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* ======================= size <= 393px ======================== */
 
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-size: 1rem; /*16px*/
+  font-size: 1rem;
+  /*16px*/
   font-weight: 400;
-  line-height: 1.5;  
+  line-height: 1.5;
   font-family: var(--sans);
 }
 
-.mt-xs { margin-top: 4px; }
-.mt-s  { margin-top: 8px; }
-.mt-m  { margin-top: 16px; }
-.mt-l  { margin-top: 24px  }
+.mt-xs {
+  margin-top: 4px;
+}
+
+.mt-s {
+  margin-top: 8px;
+}
+
+.mt-m {
+  margin-top: 16px;
+}
+
+.mt-l {
+  margin-top: 24px
+}
 
 /* ======================= size >= 768px ======================== */
-@media (min-width: 768px){
+@media (min-width: 768px) {
   body {
     background-color: #fff;
     color: var(--text);
-    font-size: 1rem;       /* 16px */
+    font-size: 1rem;
+    /* 16px */
     line-height: 1.5;
   }
 }
-
-/* 
-  h1: weight: 700; style: bold; size: 64px; line-height:84px;
-  h2: weight: 400; style: regular; size: 40px; line-height:56px; 
-  h3: weight: 400; style: regular; size: 32px; line-height:48px; 
-  text base: size: 16px;
-  text: weight: 400; style: regular; size: 16px; line-height:26px; 
-  nav: weight: 400; style: regular; size: 14px; line-height:22px; 
-  footer-title: weight: 600; style: semibold; size: 20px; line-height: 30px; 
-  footer: weight: 400; style: regular; size:18; line-height: 28px; 
-   */

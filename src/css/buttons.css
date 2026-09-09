@@ -11,9 +11,14 @@
   border: none;
 }
 
+.navbar__actions .btn {
+  width: auto;
+}
+
 /*===============MOBILE BUTTON===============*/
 
-.btn--s { min-height: 32px; font-size: 12px; border-radius: 4px;  }
+.btn--xs { min-height: 32px; font-size: 12px; border-radius: 4px;  }
+.btn--s { min-height: 36px; font-size: 14px; border-radius: 10px; padding: 8px 18px; }
 .btn--m { min-height: 44px; font-size: 16px; border-radius: 10px; }
 .btn--l { min-height: 52px; font-size: 18px; border-radius: 10px; }
 
@@ -60,5 +65,12 @@
 /*===============DESKTOP BUTTON===============*/
 @media (min-width: 768px){
   .btn { width: auto; padding: 14px 24px; }
-  .btn--s {min-height: 36px; font-size: 14px; border-radius: 10px;}
+  .navbar__actions .btn { width: auto; }
+  .btn--s {
+    min-height: 36px;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 8px 18px;
+  }
+
 }

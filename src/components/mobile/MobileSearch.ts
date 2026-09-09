@@ -6,12 +6,3 @@ export function renderMobileSearch(value: string = "") {
     </div>
   `;
 }
-
-// export function renderMemberSearchBar(): string {
-//     return `
-//     <label for="querySearchUser">Buscar:</label>
-//     <input type ="text" id="querySearchUser" placeholder="Escriu el nom o les skills">
-//     <button> 
-//     <input type ="button" id="searchUser" class="cta-style" value="Buscar">
-// `;
-// }
