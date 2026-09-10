@@ -1,0 +1,76 @@
+@import "./styles.css";
+
+.btn{
+  /* display: inline-block; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  cursor: pointer; 
+  width: 100%; 
+  border: none;
+}
+
+.navbar__actions .btn {
+  width: auto;
+}
+
+/*===============MOBILE BUTTON===============*/
+
+.btn--xs { min-height: 32px; font-size: 12px; border-radius: 4px;  }
+.btn--s { min-height: 36px; font-size: 14px; border-radius: 10px; padding: 8px 18px; }
+.btn--m { min-height: 44px; font-size: 16px; border-radius: 10px; }
+.btn--l { min-height: 52px; font-size: 18px; border-radius: 10px; }
+
+.btn--gradient{
+  background: var(--brand-gradient);
+  color: #fff;
+  border-radius: 6px;
+}
+
+.btn--outline{
+  background: #fff;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+}
+
+.btn--solid{
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.btn--light{
+  background: var(--bg-brand-light);
+  color: var(--brand-primary);
+}
+
+.btn--google{
+  background: var( --bg-rrss-google);
+  color: var(--text-rrss-google);
+}
+.btn--facebook{
+  background: var( --bg-rrss-facebook);
+  color: var(--text-rrss-facebook);
+}
+/*************** PDT HOVER ***************/
+.btn--gradient:hover {
+  filter: brightness(1.1);
+}
+
+.btn--gradient:focus-visible {
+  outline: 2px solid var(--bg);
+  outline-offset: 2px;
+}
+
+/*===============DESKTOP BUTTON===============*/
+@media (min-width: 768px){
+  .btn { width: auto; padding: 14px 24px; }
+  .navbar__actions .btn { width: auto; }
+  .btn--s {
+    min-height: 36px;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 8px 18px;
+  }
+
+}

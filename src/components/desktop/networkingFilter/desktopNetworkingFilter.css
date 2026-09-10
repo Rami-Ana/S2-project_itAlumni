@@ -1,0 +1,32 @@
+.desktop-networking-filter {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.desktop-networking__sort-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.desktop-networking__link {
+  width: auto;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: var(--text-s);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+}
+
+.desktop-networking__link--active {
+  color: var(--brand-primary);
+  font-weight: 700;
+  border-bottom-color: var(--brand-primary);
+}

@@ -1,0 +1,114 @@
+ /* .mobile-networking__container {} */
+
+.mobile-networking__wrapper {
+  padding: 16px;
+}
+
+.mobile-networking__cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.filter-panel {
+  margin-top: 20px;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.filter-panel__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-panel__chips {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  appearance: none;
+  border: 1px solid var(--border-default);
+  background: #fff;
+  color: var(--text-placeholder);
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.chip--active {
+  background: var(--brand-primary);
+  color: #fff;
+  border-color: var(--brand-primary);
+}
+
+.filter-panel__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-placeholder);
+  cursor: pointer;
+}
+
+
+.filter-panel__checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 2px solid var(--border-default);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.filter-panel__checkbox input[type="checkbox"]:checked {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.filter-panel__checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+
+.desktop-networking__wrapper {
+  padding: 90px 20px; 
+  max-width: 1280px; 
+  margin: 0 auto;   
+}
+
+.desktop-networking__title{
+  text-align: center;
+  color: var(--text-primary);
+  font-size: var(--text-xxl);
+  font-weight: 400;
+} 
+
+.desktop-networking__grid {
+  display: grid;
+  margin:  0 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 32px;
+}

@@ -1,0 +1,12 @@
+.mobile-footer {
+    background-color: #1D2128;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-footer__img {
+    max-width: 1200px;      
+    width: 100%;
+    display: block;
+}

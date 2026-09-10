@@ -1,0 +1,25 @@
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-form-input);
+  color: var(--text-secondary);
+  cursor: pointer;
+  appearance: none;
+}
+
+.nav-btn:hover {
+  background: var(--text-secondary);
+  color: var(--bg-form-input);
+
+}

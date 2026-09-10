@@ -1,0 +1,32 @@
+/* line-height: */
+.text-xxs { font-size: 12px;}
+.text-xs { font-size: 14px; }
+.text-s  { font-size: 16px; }
+.text-m  { font-size: 18px; }
+/* .text-l  { font-size: 20px; } */
+.text-xl  { font-size: 24px; }
+.text-xxl  { font-size: 32px; }
+
+.text-xxxl  { font-size: 64px; }
+
+
+.text-regular { font-weight: 400; }
+.text-medium  { font-weight: 500; }
+.text-bold    { font-weight: 700; }
+
+.text-primary   { color: #171A1F; }
+.text-secondary { color: #565E6C; }
+.text-light   { color: #9095A0; }
+.text-placeholder { color: #BCC1CA; }
+
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+  /* 
+  --text: #171A1F;
+  --text-secondary: #565E6C;
+  --text-light: #9095A0;
+  --text-placeholder: #BCC1CA; 
+  */

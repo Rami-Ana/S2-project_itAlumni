@@ -1,53 +1,30 @@
-import './css/style.css'
+import './css/styles.css';
+import './css/typography.css';
+import './css/buttons.css';
+import './css/home.css';
+import './css/networking.css';
+import './components/mobile/cards/mobileHomeCard.css';
+import './components/mobile/cards/mobileNetworkingCard.css';
+import './components/mobile/mobileSearch.css';
+import './components/mobile/mobileHeader.css';
+import './components/desktop/cards/desktopHomeCard.css';
+import './components/desktop/cards/testimonialCard.css';
+import './components/carouselNav.css';
+import './components/desktop/footer.css';
+import './components/desktop/navbar/desktopNavbar.css';
+import './components/mobile/navbar/mobileNavbar.css';
+import './components/desktop/cards/desktopNetworkingCard.css';
+import './components/desktop/networkingFilter/desktopNetworkingFilter.css';
+import './components/desktop/search/desktopSearch.css';
+import './components/desktop/networkingHeader/desktopNetworkingHeader.css'; 
+import './components/mobile/form/mobileForm.css';
 
-// document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-// <section id="center">
-//   <div class="hero">
-   
-//   </div>
-//   <div>
-//     <h1>Get started</h1>
-//     <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
-//   </div>
-//   <button id="counter" type="button" class="counter"></button>
-// </section>
 
-// <div class="ticks"></div>
+import { PageManager } from './manager/PageManager';
 
-// <section id="next-steps">
-//   <div id="docs">
-//     <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-//     <h2>Documentation</h2>
-//     <p>Your questions, answered</p>
-//     <ul>
-//       <li>
-//         <a href="https://vite.dev/" target="_blank">
-//           <img class="logo" src="${viteLogo}" alt="" />
-//           Explore Vite
-//         </a>
-//       </li>
-//       <li>
-//         <a href="https://www.typescriptlang.org" target="_blank">
-//           <img class="button-icon" src="${typescriptLogo}" alt="">
-//           Learn more
-//         </a>
-//       </li>
-//     </ul>
-//   </div>
-//   <div id="social">
-//     <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-//     <h2>Connect with us</h2>
-//     <p>Join the Vite community</p>
-//     <ul>
-//       <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-//       <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-//       <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-//       <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-//     </ul>
-//   </div>
-// </section>
+new PageManager("#app"); //#: sintaxis CSS, si buscara sin id bucaria una etiqueta <app>.
 
-// <div class="ticks"></div>
-// <section id="spacer"></section>
-// `
 
+// if(window.innerWidth < 768 ){
+// manager.loadPage("welcome"); //invocamos metodo de PageManager y pasamos parametro
+// }else{manager.loadPage("home");}
