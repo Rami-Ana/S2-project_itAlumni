@@ -2,27 +2,26 @@
 <!-- //(image.png) -->
 ITAlumni
 
+## Links
+FIGMA -> https://www.figma.com/design/P7LLJhWnouuf35MCrmYs2p/Dev?node-id=214-2474&t=088SOyHGDchAhNGh-1
+TRELLO -> https://trello.com/invite/b/6a7ae03d6ea3a3c0e1050345/ATTIc8a235ff6536e44f0c85d89c25b96160D43B3596/s2-projecte-01-it-alumni
+GITHUB -> https://github.com/Rami-Ana/S2-project_itAlumni
+
 Description
 Brief description of your web layout project. Explain what it does, what it's for, and what problem it solves:
 
 # annex-1-projecte-1-briefing:  BRIEFING PROJECTE ITALUMNI
 
-**Barcelona Activa** és l’agència de desenvolupament local de l’Ajuntament de Barcelona. A través d’iniciatives com l’**IT Academy**, ofereix formació intensiva i gratuïta en tecnologies digitals a persones en recerca de noves oportunitats laborals, amb l’objectiu d’impulsar el talent local i reduir la bretxa digital en l’accés a l’ocupació.
+*Barcelona Activa* is the local development agency of the Barcelona City Council. Through initiatives such as the*IT Academy*, it offers free and intensive training in digital technologies to people in search of new job opportunities, with the aim of promoting local talent and reducing the digital divide in access to employment.
 
-L’**IT Academy** s’ha consolidat com un referent en formació tecnològica pràctica i orientada al mercat laboral. Cada any, desenes de persones —moltes sense experiència prèvia en el sector digital— completen la seva formació en desenvolupament web, anàlisi de dades, intel·ligència artificial, Salesforce, AWS, entre d’altres.
+The*IT Academy* has established itself as a benchmark in practical and labour market-oriented technological training. Every year, dozens of people —many without previous experience in the digital sector— complete their training in web development, data analysis, artificial intelligence, Salesforce, AWS, among others.
 
-El projecte **Exalumni** neix com a resposta a una necessitat detectada dins la pròpia comunitat de graduats: un cop finalitzada la formació, el vincle amb l’IT Academy i entre excompanys/es es dilueix, tot i el gran valor que tindria mantenir activa i connectada aquesta xarxa.
-
+The *Exalumni** project was born in response to a need detected within the community of graduates: once the training is over, the link with the IT Academy and between ex-partners is diluted, despite the great value that would have to keep this network active and connected.
 ----------------------------------------------------------------------------------------------
 
 
-
-
-<!-- Example: This project is a landing page for a fictional coffee shop. It includes menu sections, gallery, and contact form. -->
-
 ## Preview
-Project preview
-
+Project preview PDT
 
 
 
@@ -47,54 +46,78 @@ italumni/
 │   │
 │   ├── pages/ (pág recibe datos + renderiza, separado por funciones HU)  
 │   │    ├── Home.ts                ← HU3.1
-│   │    ├── MemberSearch.ts        ← HU3.1 (buscar/filtrar) (renombrar networking y acabarla)
-│   │    ├── MemberProfile.ts       ← HU3.2  (ver perfil)    (Eliminar, NO LA PIDEN) 
+│   │    ├── networking.ts          ← HU3.1 (buscar/filtrar)
+│   │    ├── MemberProfile.ts       ← HU3.2  (ver perfil)    (no VPM) 
 │   │    ├── Jobs.ts                ← HU4.1
-│   │    └── Events.ts              ← HU4.2
+│   │    └── Events.ts              ← HU5.1
 │   │
 │   ├── components/ #tarjeta visual
 │   │   ├── mobile/
-│   │   │     ├── Footer.ts                   (PENDIENDITE HACER) 
+│   │   │     ├── Footer.ts                   (no VPM) 
 │   │   │     ├── MobileHeader.ts
+│   │   │     ├── mobileHeader.css
 │   │   │     ├── MobileSearch.ts
-│   │   │     ├── MobileNav.ts
+│   │   │     ├── mobileSearch.css
+│   │   │     ├── form/                       
+│   │   │     │    ├── mobileForm.css
+│   │   │     │    └── MobileForm.ts
+│   │   │     ├── navbar/                       
+│   │   │     │    ├── mobileNavbar.css
+│   │   │     │    └── MobileNavbar.ts
 │   │   │     └── cards/
 │   │   │          ├── MobileHomeCard.ts
-│   │   │          ├── MobileProfileCard.ts  (PENDIENDITE HACER) 
-│   │   │          └── MobileJobCard.ts      (PENDIENDITE HACER) 
+│   │   │          ├── MobileHomeCard.css   
+│   │   │          ├── MobileProfileCard.ts   
+│   │   │          └── MobileProfileCard.css        
 │   │   │               
 │   │   ├── Desktop/
-│   │   │     ├── DesktopHeader.ts            (PENDIENDITE HACER) 
-│   │   │     ├── DesktopSearch.ts            (PENDIENDITE HACER) 
-│   │   │     ├── DesktopNav.ts               (PENDIENDITE HACER) 
-│   │   │     └── cards/                      (PENDIENDITE HACER) 
-│   │   │          ├── DesktopFeatureCard.ts
-│   │   │          ├── DesktopProfileCard.ts 
-│   │   │          └── DesktopJobCard.ts
+│   │   │     ├── footer.css             
+│   │   │     ├── Footer.ts              
+│   │   │     ├── networkingFilter/                       
+│   │   │     │    ├── DesktopNetworkingFilter.ts
+│   │   │     │    └── desktopNetworkingFilterr.css 
+│   │   │     ├── networkingHeader/                       
+│   │   │     │    ├── DesktopNetworkingHeader.ts
+│   │   │     │    └── desktopNetworkingHeader.css 
+│   │   │     ├── search/                       
+│   │   │     │    ├── DesktopSearch.ts
+│   │   │     │    └── desktopSearch.css   
+│   │   │     ├── navbar/                       
+│   │   │     │    ├── desktopNavbar.css
+│   │   │     │    └── DesktopNavbar.ts                 
+│   │   │     └── cards/                       
+│   │   │          ├── DesktopHomeCard.ts
+│   │   │          ├── desktopHomeCard.css 
+│   │   │          ├── DesktopNetworkingCard.ts
+│   │   │          ├── desktopNetworkingeCard.css 
+│   │   │          ├── TestimonialCard.ts
+│   │   │          └── testimonialCard.ts
 │   │   │ 
-│   │   ├── Footer.ts                           (PENDIENDITE HACER)         
-│   │   ├── ProfileCard #HU3.2. → perfiles      (Eliminar, NO LA PIDEN)
-│   │   ├── JobCard  #HU4.1 → ofertas           (PENDIENDITE HACER) 
-│   │   └── EventCard #HU5.1 → Eventos          (PENDIENDITE HACER) 
+│   │   ├── carrouselNav.css        
+│   │   ├── CarrouselNav.ts       
+│   │   └── ProfileCard.ts (NO VPM)              
 │   │ 
 │   ├── models (entidades y lógica: clases de negocio, con métodos)
 │   │   ├── User.ts 
-│   │   ├── Admin.ts                             (PENDIENDITE HACER) 
-│   │   ├── Technician.ts                        (PENDIENDITE HACER) 
-│   │   └── Alum.ts                              (PENDIENDITE HACER) 
+│   │   ├── Admin.ts                             (no VPM) 
+│   │   ├── Technician.ts                        (no VPM)  
+│   │   └── Alum.ts                              (no VPM)  
 │   │ 
 │   ├── types (interfaces sin lógica) 
 │   │   ├── IUser.ts
-│   │   ├── IJob.ts                             (PENDIENDITE HACER) 
-│   │   ├── IEvent.ts                           (PENDIENDITE HACER)
-│   │   └── INetworkingFilters.ts                           
-│   │
+│   │   ├── INavLink.ts
+│   │   ├── INetworkingFilters.ts
+│   │   ├── ITestimonial.ts                              
+│   │   ├── IJob.ts                                (PDT)                           
+│   │   ├── IEvent.ts                              (PDT)                         
+│   │   └── INetworkingFilters.ts                  (PDT)                        
+│   │   
 │   ├── services/ → lógica de negocio (Filtrar, buscar, ordenar, etc.)
 │   │    ├── UserService → filtrar, buscar, ordenar usuarios
-│   │    ├── JobService → filtrar ofertas       (PENDIENDITE HACER) 
-│   │    ├── EventService → filtrar eventos     (PENDIENDITE HACER) 
-│   │    ├── AuthService → login, logout        (PENDIENDITE HACER) 
-│   │    └── ApiService → llamadas HTTP         (PENDIENDITE HACER) 
+│   │    ├── JobService → filtrar ofertas      (PDT) 
+│   │    ├── EventService → filtrar eventos    (PDT) 
+│   │    ├── AuthService → login, logout       (PDT) 
+│   │    └── ApiService → llamadas HTTP        (PDT)    
 │   │ 
 │   ├── mocks
 │   │    └── mockUsers.ts/ #(Gestión de datos de prueba)│   
@@ -105,6 +128,7 @@ italumni/
 │   │    └── icons/ 
 │   │ 
 │   └── utils/ #cualquier función auxiliar reutilizable GENERICA
+│        ├── viewport.ts                               (futura implementación)
 │        ├── randomId.ts                               (futura implementación)
 │        └── validators.ts (validar email,validar pw)  (futura implementación)
 │   
