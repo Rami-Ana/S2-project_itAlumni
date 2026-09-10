@@ -7,7 +7,7 @@ export function renderMobileHeader(titleSection: string): string {
         <button class="mobile-header__filter-btn" onclick="return false" aria-label="filtre">
           <img src="src/assets/icons/nav--icon__1.png" alt="Icon" class="mobile-header__icon">
         </button>
-        <button class="mobile-header__profile-btn" onclick="return false" aria-label="Profile">
+        <button class="mobile-header__profile-btn" data-page="register"  aria-label="Profile">
           <img src="src/assets/images/profile_template.png" alt="Profile" class="mobile-header__avatar">
         </button>
       </div>

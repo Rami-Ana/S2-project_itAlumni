@@ -4,9 +4,9 @@ import type { NetworkingFilters } from "../types/INetworkingFilters";
 import type { Seniority } from "../types/IUser";
 import { renderNavbarDesktop } from "../components/desktop/navbar/DesktopNavbar";
 import { renderNavbarMobile } from "../components/mobile/navbar/MobileNavbar";
+import { renderRegisterForm } from "../components/mobile/form/MobileForm";
 
-
-type PageName = "welcome" | "home" | "networking";// | "jobs" | "events";
+type PageName = "welcome" | "home" | "networking" | "register";// | "jobs" | "events";
 
 
 export class PageManager {
@@ -33,7 +33,19 @@ export class PageManager {
 
     private bindResize(): void {
         window.addEventListener("resize", () => {
-            this.renderNavbar(); // solo nav, no cambia de page
+            const isMobile = window.innerWidth < 768;
+            const isLandingPage = this.currentPage === "welcome" || this.currentPage === "home";
+
+
+            if (isLandingPage) {
+                const correctPage = isMobile ? "welcome" : "home";
+                if (this.currentPage !== correctPage) {
+                    this.loadPage(correctPage);
+                    return; // loadPage ya llama a renderNavbar() internamente
+                }
+            }
+            this.root.innerHTML = this.getPageHTML(this.currentPage);
+            this.renderNavbar(); //  solo actualiza el navbar
         });
     }
     // --------------LOAD PAGE----------
@@ -53,7 +65,7 @@ export class PageManager {
         }
 
         const isMobile = window.innerWidth < 768;
-        
+
         if (isMobile) {
             this.navbarRoot.innerHTML = renderNavbarMobile(this.currentPage);
         } else {
@@ -71,6 +83,8 @@ export class PageManager {
                 return renderHome();
             case "networking":
                 return renderNetworking(this.networkingFilters);
+            case "register":
+                return renderRegisterForm();
             // case "applyFilter":
             //     return handleFilter();
             // case "jobs":
@@ -87,6 +101,13 @@ export class PageManager {
     private bindEvents(): void {
         this.root.addEventListener("click", (event) => {
             const target = event.target as HTMLElement;
+
+            const pageLink = target.closest("[data-page]") as HTMLElement | null;
+            if (pageLink !== null) {
+                const page = pageLink.dataset.page as PageName;
+                this.loadPage(page);
+                return;
+            }
 
             if (target.id === "joinButton") {
                 this.loadPage("home");

@@ -17,6 +17,8 @@ import './components/desktop/cards/desktopNetworkingCard.css';
 import './components/desktop/networkingFilter/desktopNetworkingFilter.css';
 import './components/desktop/search/desktopSearch.css';
 import './components/desktop/networkingHeader/desktopNetworkingHeader.css'; 
+import './components/mobile/form/mobileForm.css';
+
 
 import { PageManager } from './manager/PageManager';
 
